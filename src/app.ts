@@ -1,4 +1,7 @@
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerOptions from './swaggerOptions';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -6,6 +9,9 @@ import authRouter from './routes/auth_router';
 import todoRouter from './routes/todo_router';
 
 const app = express();
+// Swagger setup
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(helmet());
 app.use(cors());
