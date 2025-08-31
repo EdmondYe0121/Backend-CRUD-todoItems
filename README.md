@@ -70,7 +70,8 @@ POST /api/auth/register      # Create new user
 
 ### Todos
 ```http
-GET    /api/todos           # Get all todos with optional filters (no auth required)
+GET    /api/todos           # Get all todos with advanced filtering support (no auth required)
+                             # Supports: category, priority, completed, search, dueDate, ownerId
 GET    /api/todos/:id       # Get specific todo (no auth required)
 POST   /api/todos           # Create todo (requires authentication)
 PATCH  /api/todos/:id       # Update todo (requires authentication, owner only)
@@ -120,4 +121,3 @@ curl -X DELETE http://localhost:4000/api/todos/todo_1 \
 
 - 57 comprehensive tests covering all functionality
 - Run with `npm test`
-- Coverage report with `npm run test:coverage`
