@@ -135,10 +135,11 @@ curl -X DELETE http://localhost:4000/api/todos/todo_1 \
   -H "Authorization: Bearer <token>"
 ```
 
+
 ## Testing
 
-- 57 comprehensive tests covering all functionality
-- Run with `npm test`
+- Automated test suites: 57 comprehensive tests covering all functionality. Run with `npm test`.
+- Manual testing: All endpoints have also been manually tested using Postman to ensure real-world usability.
 
 ### Latest Test Results
 
