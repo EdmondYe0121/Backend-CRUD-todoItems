@@ -71,12 +71,13 @@ POST /api/auth/register      # Create new user
 ### Todos
 ```http
 GET    /api/todos           # Get all todos with advanced filtering support (no auth required)
-                             # Filters: category, priority, completed, search (title & description), dueDate, ownerId
 GET    /api/todos/:id       # Get specific todo (no auth required)
 POST   /api/todos           # Create todo (requires authentication)
 PATCH  /api/todos/:id       # Update todo (requires authentication, owner only)
 DELETE /api/todos/:id       # Delete todo (requires authentication, owner only)
 ```
+
+**Available filters for GET /api/todos:** `category`, `priority`, `completed`, `search` (title & description), `dueDate`, `ownerId`
 
 ## Example Usage
 
