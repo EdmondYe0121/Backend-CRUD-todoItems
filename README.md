@@ -1,1 +1,123 @@
-# Backend-CRUD-todoItems
+# Todo API - Backend CRUD Features
+
+A TypeScript REST API for managing todo items with JWT authentication.
+
+## Features
+
+- CRUD operations for todos
+- JWT authentication
+- Owner-based authorization
+- Advanced filtering (category, priority, completion, due date, search, ownerId)
+- Comprehensive test coverage
+
+## Tech Stack
+
+- **TypeScript** - Type-safe JavaScript
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **JWT** - Authentication tokens
+- **bcryptjs** - Password hashing
+- **Jest** - Testing framework
+- **Helmet** - Security middleware
+- **CORS** - Cross-origin resource sharing
+
+## Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Create environment files:
+```bash
+cp .env.example .env
+```
+
+3. Start development server:
+```bash
+npm run dev
+```
+
+4. Run tests:
+```bash
+npm test
+```
+
+## Demo Users
+
+| Email | Password |
+|-------|----------|
+| user1@example.com | password123 |
+| user2@example.com | password456 |
+
+## Demo Todos
+
+The application comes with 3 pre-loaded todos for `user1@example.com`:
+
+| ID | Title | Category | Priority | Completed | Due Date |
+|----|-------|----------|----------|-----------|----------|
+| todo_1 | Complete backend API | work | high | false | 2024-09-01 |
+| todo_2 | Buy groceries | personal | medium | true | 2024-09-02 |
+| todo_3 | Plan weekend trip | personal | low | false | 2024-09-05 |
+
+## API Endpoints
+
+### Authentication
+```http
+POST /api/auth/login         # User login
+POST /api/auth/register      # Create new user
+```
+
+### Todos
+```http
+GET    /api/todos           # Get all todos with optional filters (no auth required)
+GET    /api/todos/:id       # Get specific todo (no auth required)
+POST   /api/todos           # Create todo (requires authentication)
+PATCH  /api/todos/:id       # Update todo (requires authentication, owner only)
+DELETE /api/todos/:id       # Delete todo (requires authentication, owner only)
+```
+
+### Filtering Parameters
+- `category`, `priority`, `completed`, `search`, `dueDate`, `ownerId`
+
+## Example Usage
+
+1. Login to get token:
+```bash
+curl -X POST http://localhost:4000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"user1@example.com","password":"password123"}'
+```
+
+2. Create todo:
+```bash
+curl -X POST http://localhost:4000/api/todos \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Test Todo","category":"work","priority":"high"}'
+```
+
+3. Filter todos:
+```bash
+curl "http://localhost:4000/api/todos?category=work&priority=high"
+```
+
+4. Update todo:
+```bash
+curl -X PATCH http://localhost:4000/api/todos/todo_1 \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"completed":true,"priority":"medium"}'
+```
+
+5. Delete todo:
+```bash
+curl -X DELETE http://localhost:4000/api/todos/todo_1 \
+  -H "Authorization: Bearer <token>"
+```
+
+## Testing
+
+- 57 comprehensive tests covering all functionality
+- Run with `npm test`
+- Coverage report with `npm run test:coverage`
