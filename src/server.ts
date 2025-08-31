@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`API base: http://localhost:${PORT}/api`);
+  console.log(`Swagger docs: http://localhost:${PORT}/api-docs`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 

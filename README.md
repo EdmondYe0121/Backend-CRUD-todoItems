@@ -79,6 +79,19 @@ PATCH  /api/todos/:id       # Update todo (requires authentication, owner only)
 DELETE /api/todos/:id       # Delete todo (requires authentication, owner only)
 ```
 
+
+## API Documentation (Swagger)
+
+Interactive API docs are available via Swagger UI:
+
+**URL:** [http://localhost:4000/api-docs](http://localhost:4000/api-docs)
+
+- Explore and try out all endpoints directly in your browser.
+- For protected endpoints, click the "Authorize" button and enter your JWT token as `Bearer <token>`.
+- All request/response schemas, query parameters, and error types are documented.
+
+---
+
 ## Example Usage
 
 1. Login to get token:
