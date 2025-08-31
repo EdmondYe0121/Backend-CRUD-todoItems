@@ -23,22 +23,29 @@ A TypeScript REST API for managing todo items with JWT authentication.
 
 ## Setup
 
-1. Install dependencies:
+
+1. Change to the project directory:
+```bash
+cd Backend-CRUD-todoItems
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Create environment files:
+
+3. Create environment files:
 ```bash
 cp .env.example .env
 ```
 
-3. Start development server:
+4. Start development server:
 ```bash
 npm run dev
 ```
 
-4. Run tests:
+5. Run tests:
 ```bash
 npm test
 ```
@@ -132,3 +139,19 @@ curl -X DELETE http://localhost:4000/api/todos/todo_1 \
 
 - 57 comprehensive tests covering all functionality
 - Run with `npm test`
+
+### Latest Test Results
+
+```
+PASS  __tests__/todo.test.ts
+PASS  __tests__/auth.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       57 passed, 57 total
+Snapshots:   0 total
+Time:        ~2 s
+
+Example HTTP status codes observed during tests:
+  200 OK, 201 Created, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found
+```
+
